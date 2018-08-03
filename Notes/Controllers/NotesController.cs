@@ -21,12 +21,12 @@ namespace Notes.Controllers
         }
 
         // GET: api/Notes
-        [HttpGet]
-        public IEnumerable<Note> GetNote()
-        {
+        //[HttpGet]
+        //public IEnumerable<Note> GetNote()
+        //{
 
-            return _context.Note.Include(n=>n.checklist).Include(n=>n.label); //join other tables
-        }
+        //    return _context.Note.Include(n=>n.checklist).Include(n=>n.label); //join other tables
+        //}
 
         // GET: api/Notes/5
         [HttpGet("{id}")]
@@ -36,8 +36,8 @@ namespace Notes.Controllers
             {
                 return BadRequest(ModelState);
             }
+            var note = await _context.Note.Include(n => n.checklist).Include(n => n.label).SingleOrDefaultAsync(c => c.ID == id);
 
-            var note = await _context.Note.FindAsync(id);
 
             if (note == null)
             {
@@ -61,10 +61,13 @@ namespace Notes.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(note).State = EntityState.Modified;
+            _context.Note.Update(note);
+            await _context.SaveChangesAsync();
 
             try
             {
+
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -79,7 +82,7 @@ namespace Notes.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(note);
         }
 
         // POST: api/Notes
@@ -96,7 +99,14 @@ namespace Notes.Controllers
 
             return CreatedAtAction("GetNote", new { id = note.ID }, note);
         }
-
+        //label
+        [HttpGet]
+        public async Task<IActionResult> GetNotes([FromQuery] string title, [FromQuery] string label, [FromQuery] bool? pinned)
+        {
+            var result = await _context.Note.Include(n => n.checklist).Include(n => n.label)
+                .Where(x => ((title == null || x.title == title) && (label == null || x.label.Exists(y => y.value == label)) && (pinned == null || x.IsPinned == pinned))).ToListAsync();
+            return Ok(result);
+        }
         // DELETE: api/Notes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNote([FromRoute] int id)
@@ -106,7 +116,7 @@ namespace Notes.Controllers
                 return BadRequest(ModelState);
             }
 
-            var note = await _context.Note.FindAsync(id);
+            var note = await _context.Note.Include(n => n.checklist).Include(n => n.label).SingleOrDefaultAsync(c => c.ID == id);
             if (note == null)
             {
                 return NotFound();
@@ -122,5 +132,20 @@ namespace Notes.Controllers
         {
             return _context.Note.Any(e => e.ID == id);
         }
+        [HttpDelete("delete/{title}")]
+        public async Task<IActionResult> DeleteNote([FromRoute] string title)
+        {
+
+            var deleteNotes = _context.Note.Include(n => n.checklist).Include(n => n.label).Where(u => u.title == title).ToList();
+            foreach (var note in deleteNotes)
+            {
+                _context.Note.Remove(note);
+            }
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        
     }
 }

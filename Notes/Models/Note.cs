@@ -18,14 +18,14 @@ namespace Notes.Models
 
     public class CheckList
     {
-        [Key]
+        
         public int ID { get; set; }
         public string value { get; set; }
         public Boolean IsChecked { get; set; }
     }
     public class Labels
     {
-        [Key]
+       
         public int ID { get; set; }
         public string value { get; set; }
     }
