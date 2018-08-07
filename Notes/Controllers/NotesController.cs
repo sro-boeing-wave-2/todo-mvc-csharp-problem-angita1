@@ -14,10 +14,21 @@ namespace Notes.Controllers
     public class NotesController : ControllerBase
     {
         private readonly NotesContext _context;
+        private DbContextOptions<NotesContext> options;
 
         public NotesController(NotesContext context)
         {
             _context = context;
+        }
+
+        public NotesController(DbContextOptions<NotesContext> options)
+        {
+            this.options = options;
+        }
+
+        public object GetNotes()
+        {
+            throw new NotImplementedException();
         }
 
         // GET: api/Notes
@@ -30,7 +41,7 @@ namespace Notes.Controllers
 
         // GET: api/Notes/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetNote([FromRoute] int id)
+        public async Task<IActionResult> GetNoteById([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -97,7 +108,7 @@ namespace Notes.Controllers
             _context.Note.Add(note);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetNote", new { id = note.ID }, note);
+            return CreatedAtAction("GetNoteById", new { id = note.ID }, note);
         }
         //label
         [HttpGet]
@@ -107,6 +118,17 @@ namespace Notes.Controllers
                 .Where(x => ((title == null || x.title == title) && (label == null || x.label.Exists(y => y.value == label)) && (pinned == null || x.IsPinned == pinned))).ToListAsync();
             return Ok(result);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAllNotes()
+        {
+            var result =    _context.Note.Include(n => n.checklist).Include(n => n.label).ToList();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         // DELETE: api/Notes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNote([FromRoute] int id)

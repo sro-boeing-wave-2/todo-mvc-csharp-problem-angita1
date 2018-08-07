@@ -1,0 +1,17 @@
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\NoteController.Testing.deps.json
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\NoteController.Testing.runtimeconfig.json
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\NoteController.Testing.runtimeconfig.dev.json
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\NoteController.Testing.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\Notes.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\Notes.pdb
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.csprojAssemblyReference.cache
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.csproj.CoreCompileInputs.cache
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.AssemblyInfoInputs.cache
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.AssemblyInfo.cs
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.csproj.CopyComplete
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\bin\Debug\netcoreapp2.1\NoteController.Testing.pdb
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\NoteController.Testing\obj\Debug\netcoreapp2.1\NoteController.Testing.pdb

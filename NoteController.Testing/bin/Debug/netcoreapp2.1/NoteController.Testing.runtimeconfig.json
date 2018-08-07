@@ -4,9 +4,6 @@
     "framework": {
       "name": "Microsoft.AspNetCore.All",
       "version": "2.1.2"
-    },
-    "configProperties": {
-      "System.GC.Server": true
     }
   }
 }
