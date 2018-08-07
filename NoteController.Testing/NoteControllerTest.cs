@@ -13,25 +13,28 @@ namespace NoteController.Testing
 {
     public class NoteControllerTest
     {
-        private  NotesController notesController;
-        public NoteControllerTest()
+       
+        public NotesController GetNewController()
         {
             var optionBuilder = new DbContextOptionsBuilder<NotesContext>();
-            optionBuilder.UseInMemoryDatabase("Some database");
+            optionBuilder.UseInMemoryDatabase<NotesContext>(Guid.NewGuid().ToString());
             NotesContext notesContext = new NotesContext(optionBuilder.Options);
-            notesController = new NotesController(notesContext);
-            CreateNotes(notesContext);
+            CreateNotes(optionBuilder.Options);
+            return new NotesController(notesContext);
+            
         }
-        
-        public void CreateNotes(NotesContext notes_Context)
+
+        public void CreateNotes(DbContextOptions<NotesContext> notes_Context)
         {
             //Arrange
-            var notes = new List<Note>()
+            using (var notesContext = new NotesContext(notes_Context))
             {
+                var notes = new List<Note>()
+               {
                 // 1st note
-                new Note
+                new Note()
                 {
-                 
+                   ID = 6,
                    title="Note1",
                    plainText="This is my plaintext",
                    IsPinned=true,
@@ -39,9 +42,9 @@ namespace NoteController.Testing
                    checklist=new List<CheckList>() { new CheckList { value ="check1",IsChecked = true} }
 
                 },
-                new Note
+                new Note()
                 {
-
+                   ID = 7,
                    title="Note12",
                    plainText="This is my plaintext 2",
                    IsPinned=true,
@@ -49,9 +52,9 @@ namespace NoteController.Testing
                    checklist=new List<CheckList>() { new CheckList { value ="check1",IsChecked = true} }
 
                 },
-                 new Note
+                 new Note()
                 {
-
+                   ID = 9,
                    title="Note3",
                    plainText="This is my plaintext 3",
                    IsPinned=true,
@@ -62,8 +65,10 @@ namespace NoteController.Testing
 
             };
 
-            notes_Context.AddRange(notes);
-            notes_Context.SaveChanges();           
+               notesContext.Note.AddRange(notes);
+                var CountNotes = notesContext.ChangeTracker.Entries().Count();
+                notesContext.SaveChanges();
+            }
         }
         /// <summary>
         /// Get Tests
@@ -71,6 +76,7 @@ namespace NoteController.Testing
         [Fact]
         public async void TestGetAllNotes()
         {
+            var notesController = GetNewController(); //create a new controller
             var okResult = await notesController.GetAllNotes() as OkObjectResult;
             var result = okResult.Value as List<Note>;
            // Console.WriteLine(result);
@@ -84,11 +90,12 @@ namespace NoteController.Testing
         [Fact]
         public async void Test_GetById()
         {
-            var okResult = await notesController.GetNoteById(2) as OkObjectResult;
+            var notesController = GetNewController();
+            var okResult = await notesController.GetNoteById(9) as OkObjectResult;
             var result = okResult.Value as Note;
             Console.WriteLine(result);
-            Assert.Equal(2, result.ID);
-            Assert.Equal("Note12",result.title);
+            Assert.Equal(9, result.ID);
+           
         }
 
 
@@ -99,9 +106,9 @@ namespace NoteController.Testing
         public void TestPost()
         { 
             //Arrange 
-            var noteCreated = new Note()
+            var noteCreated = new Note
             {
-                
+                ID = 5,
                 title = "NoteCreation",
                 plainText = "This is my plaintext1",
                 IsPinned = true,
@@ -110,6 +117,7 @@ namespace NoteController.Testing
 
             };
             //Act
+            var notesController = GetNewController();
             var Response = notesController.PostNote(noteCreated).Result as CreatedAtActionResult;          
             var item = Response.Value as Note;
 
@@ -127,13 +135,14 @@ namespace NoteController.Testing
         {
 
             // Arrange
-            var okResponse = await notesController.DeleteNote(2) as OkObjectResult;
+            var notesController = GetNewController();
+            var okResponse = await notesController.DeleteNote(7) as OkObjectResult;
             //Act
             var result = okResponse.Value as Note;
             
             //Assert
             // Assert.IsType<OkResult>(okResponse);
-            Assert.Equal(2, result.ID);
+            Assert.Equal(7, result.ID);
 
 
         }
@@ -146,17 +155,19 @@ namespace NoteController.Testing
         public async void Test_Put()
         {
             var notePut = new Note
-            {
-                ID = 3,
+            {   
+                ID = 6,
                 title = "Note Changed",
                 plainText = "This is my plaintextttt",
                 IsPinned = true,
                 label = new List<Labels>() { new Labels { value = "Label_1" }, new Labels { value = "Label_2" } },
                 checklist = new List<CheckList>() { new CheckList { value = "check1", IsChecked = true } }
-
+      
             };
-            var okResponse = await notesController.PutNote(3,notePut) as OkObjectResult;
-            var result = okResponse.Value as Note;
+            var notesController = GetNewController();
+            var okResponse = await notesController.PutNote(6, notePut);
+            var okRespopnseResult = okResponse as OkObjectResult;
+            var result = okRespopnseResult.Value as Note;
             Assert.Equal("Note Changed", result.title);
 
         }
