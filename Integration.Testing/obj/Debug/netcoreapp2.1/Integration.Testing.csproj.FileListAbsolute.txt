@@ -1,0 +1,17 @@
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Integration.Testing.deps.json
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Integration.Testing.runtimeconfig.json
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Integration.Testing.runtimeconfig.dev.json
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Integration.Testing.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.csprojAssemblyReference.cache
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.csproj.CoreCompileInputs.cache
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.AssemblyInfoInputs.cache
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.AssemblyInfo.cs
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Notes.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Notes.pdb
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.csproj.CopyComplete
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\bin\Debug\netcoreapp2.1\Integration.Testing.pdb
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.dll
+D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Integration.Testing\obj\Debug\netcoreapp2.1\Integration.Testing.pdb

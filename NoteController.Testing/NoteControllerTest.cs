@@ -73,15 +73,15 @@ namespace NoteController.Testing
         /// <summary>
         /// Get Tests
         /// </summary>
-        [Fact]
-        public async void TestGetAllNotes()
-        {
-            var notesController = GetNewController(); //create a new controller
-            var okResult = await notesController.GetAllNotes() as OkObjectResult;
-            var result = okResult.Value as List<Note>;
-           // Console.WriteLine(result);
-            Assert.Equal(3,result.Count);
-        }
+        //[Fact]
+        //public async void TestGetAllNotes()
+        //{
+        //    var notesController = GetNewController(); //create a new controller
+        //    var okResult = await notesController.GetAllNotes() as OkObjectResult;
+        //    var result = okResult.Value as List<Note>;
+        //    // Console.WriteLine(result);
+        //    Assert.Equal(3, result.Count);
+        //}
 
 
         /// <summary>

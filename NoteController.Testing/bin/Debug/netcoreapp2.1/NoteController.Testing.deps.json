@@ -1,13 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "717ab8ccba239607e10e7d83761da5231b46bf84"
+    "signature": "92b5ef3558b6311be7c809df0f90acae0e00d5af"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "NoteController.Testing/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.TestHost": "2.1.1",
           "Microsoft.NET.Test.Sdk": "15.7.0",
           "Microsoft.NETCore.App": "2.1.0",
           "NSuperTest": "0.1.22",
@@ -28,6 +29,14 @@
           "lib/net45/EntityFramework.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.2.61023.0"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.TestHost/2.1.1": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.TestHost.dll": {
+            "assemblyVersion": "2.1.1.0",
+            "fileVersion": "2.1.1.18157"
           }
         }
       },
@@ -734,6 +743,13 @@
       "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
       "path": "entityframework/6.2.0",
       "hashPath": "entityframework.6.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.TestHost/2.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5sj4TXN7Iec3yTKGyjMUCPZp1oj2zqDaRKG1/KJxg8fd8lvZAr/KYV9YlLIVAc2cN3r1AS9DQGoKuvvPFiY+pg==",
+      "path": "microsoft.aspnetcore.testhost/2.1.1",
+      "hashPath": "microsoft.aspnetcore.testhost.2.1.1.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",

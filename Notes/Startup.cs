@@ -18,24 +18,35 @@ namespace Notes
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration,IHostingEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment; //Added for Integration Testing
         }
 
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment Environment { get; set; } //Added for Integration Testing
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<NotesContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("NotesContext")));
-            services.AddSwaggerGen(c =>
+            //Added for Integration Testing
+            if (Environment.IsEnvironment("Testing"))
             {
-                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-            });
+                services.AddDbContext<NotesContext>(options =>
+                    options.UseInMemoryDatabase("testDB"));
+            }
+            else
+            {
+                services.AddDbContext<NotesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("NotesContext")));
+            }
+                services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

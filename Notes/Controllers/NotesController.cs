@@ -21,15 +21,15 @@ namespace Notes.Controllers
             _context = context;
         }
 
-        public NotesController(DbContextOptions<NotesContext> options)
-        {
-            this.options = options;
-        }
+        //public NotesController(DbContextOptions<NotesContext> options)
+        //{
+        //    this.options = options;
+        //}
 
-        public object GetNotes()
-        {
-            throw new NotImplementedException();
-        }
+        //public object GetNotes()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         // GET: api/Notes
         //[HttpGet]
@@ -117,16 +117,17 @@ namespace Notes.Controllers
                 .Where(x => ((title == null || x.title == title) && (label == null || x.label.Exists(y => y.value == label)) && (pinned == null || x.IsPinned == pinned))).ToListAsync();
             return Ok(result);
         }
-        [HttpGet]
-        public async Task<IActionResult> GetAllNotes()
-        {
-            var result =    _context.Note.Include(n => n.checklist).Include(n => n.label).ToList();
-            if (result == null)
-            {
-                return NotFound();
-            }
-            return Ok(result);
-        }
+
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllNotes()
+        //{
+        //    var result = _context.Note.Include(n => n.checklist).Include(n => n.label).ToList();
+        //    if (result == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(result);
+        //}
 
         // DELETE: api/Notes/5
         [HttpDelete("{id}")]

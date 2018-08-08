@@ -2,7 +2,6 @@ D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\bin\Debug\netcore
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\bin\Debug\netcoreapp2.1\Notes.runtimeconfig.json
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\bin\Debug\netcoreapp2.1\Notes.runtimeconfig.dev.json
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\bin\Debug\netcoreapp2.1\Notes.dll
-D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.csprojAssemblyReference.cache
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.csproj.CoreCompileInputs.cache
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.RazorAssemblyInfo.cache
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.RazorAssemblyInfo.cs
