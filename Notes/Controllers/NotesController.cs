@@ -21,23 +21,7 @@ namespace Notes.Controllers
             _context = context;
         }
 
-        //public NotesController(DbContextOptions<NotesContext> options)
-        //{
-        //    this.options = options;
-        //}
-
-        //public object GetNotes()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        // GET: api/Notes
-        //[HttpGet]
-        //public IEnumerable<Note> GetNote()
-        //{
-
-        //    return _context.Note.Include(n=>n.checklist).Include(n=>n.label); //join other tables
-        //}
+       
 
         // GET: api/Notes/5
         [HttpGet("{id}")]
@@ -69,7 +53,7 @@ namespace Notes.Controllers
 
             if (id != note.ID)
             {
-                return BadRequest();
+                return NotFound();
             }
 
             _context.Note.Update(note);
@@ -115,8 +99,15 @@ namespace Notes.Controllers
         {
             var result = await _context.Note.Include(n => n.checklist).Include(n => n.label)
                 .Where(x => ((title == null || x.title == title) && (label == null || x.label.Exists(y => y.value == label)) && (pinned == null || x.IsPinned == pinned))).ToListAsync();
+            if(result.Count == 0)
+            {
+                return NotFound();
+            }
             return Ok(result);
+
         }
+          
+        
 
         //[HttpGet]
         //public async Task<IActionResult> GetAllNotes()
