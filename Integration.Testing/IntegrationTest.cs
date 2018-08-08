@@ -184,7 +184,7 @@ namespace Integration.Testing
         public async void IntegrationTest_Delete()
         {
             var responseD = await _client.DeleteAsync("/api/Notes/5");
-            responseD.EnsureSuccessStatusCode();
+        
             var responseStringD = await responseD.Content.ReadAsStringAsync();
             //Assert.Null(responseString);
 
@@ -200,8 +200,7 @@ namespace Integration.Testing
         [Fact]
         public async void IntegrationTest_DeleteInvalid()
         {
-            var responseD = await _client.DeleteAsync("/api/Notes/99");
-           // responseD.EnsureSuccessStatusCode();          
+            var responseD = await _client.DeleteAsync("/api/Notes/99");          
             Assert.Equal(HttpStatusCode.NotFound, responseD.StatusCode);
         }
 

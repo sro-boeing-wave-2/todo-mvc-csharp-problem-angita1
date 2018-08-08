@@ -106,20 +106,6 @@ namespace Notes.Controllers
             return Ok(result);
 
         }
-          
-        
-
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllNotes()
-        //{
-        //    var result = _context.Note.Include(n => n.checklist).Include(n => n.label).ToList();
-        //    if (result == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(result);
-        //}
-
         // DELETE: api/Notes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNote([FromRoute] int id)
