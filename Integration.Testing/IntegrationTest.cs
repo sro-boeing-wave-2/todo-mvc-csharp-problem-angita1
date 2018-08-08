@@ -197,7 +197,13 @@ namespace Integration.Testing
             Assert.Equal(2, notes.Count);  //Check the count of notes after one note got deleted
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
-
+        [Fact]
+        public async void IntegrationTest_DeleteInvalid()
+        {
+            var responseD = await _client.DeleteAsync("/api/Notes/99");
+           // responseD.EnsureSuccessStatusCode();          
+            Assert.Equal(HttpStatusCode.NotFound, responseD.StatusCode);
+        }
 
 
 
