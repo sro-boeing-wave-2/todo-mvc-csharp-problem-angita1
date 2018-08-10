@@ -10,4 +10,5 @@ dotnet: 2.1
 script:
   - dotnet restore
   - dotnet test NoteController.Testing/
+  - dotnet test Integration.Testing/
  
