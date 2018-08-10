@@ -11,7 +11,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 using System.Text;
-using Notes;
+
 
 namespace Integration.Testing
 {
@@ -122,6 +122,7 @@ namespace Integration.Testing
             Assert.Equal(2, note.Count);
             Assert.Equal("Note2",note[0].title);
             Assert.Equal("Note2", note[1].title);
+
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         }
@@ -164,7 +165,8 @@ namespace Integration.Testing
             var responseString = await response.Content.ReadAsStringAsync();
             var note = JsonConvert.DeserializeObject<Note>(responseString);
             
-            Assert.Equal("Changed to NotePut", note.title);
+            Assert.Equal("Changed to NotePut", note.title);//check title
+            Assert.Equal("Label_1put", note.label[0].value);//check label
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
         }

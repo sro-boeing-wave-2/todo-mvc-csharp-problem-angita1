@@ -57,7 +57,7 @@ namespace Notes.Controllers
             }
 
             _context.Note.Update(note);
-            int f;
+          
             await _context.SaveChangesAsync();
 
             try
