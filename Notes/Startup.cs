@@ -30,24 +30,43 @@ namespace Notes
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient<DataAccess>();
+            services.AddMvc();
 
+            services.Configure<Settings>(options =>
+            {
+                options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                options.Database = Configuration.GetSection("MongoConnection:Database").Value;
+            });
             //Added for Integration Testing
-            if (Environment.IsEnvironment("Testing"))
-            {
-                services.AddDbContext<NotesContext>(options =>
-                    options.UseInMemoryDatabase("testDB"));
-            }
-            else
-            {
-                services.AddDbContext<NotesContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("NotesContext")));
-            }
+            //if (Environment.IsEnvironment("Testing"))
+            //{
+            //    services.AddDbContext<NotesContext>(options =>
+            //        options.UseInMemoryDatabase("testDB"));
+            //}
+            //else
+            
+                services.Configure<Settings>(options =>
+                {
+                    options.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                    options.Database = Configuration.GetSection("MongoConnection:Database").Value;
+                });
+                //services.AddDbContext<NotesContext>(options =>
+                //    options.UseSqlServer(Configuration.GetConnectionString("NotesContext"),
+                //    dbOptions => dbOptions.EnableRetryOnFailure(maxRetryCount: 10,
+                //       maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null)));
+
+
+
+            
                 services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
                 });
         }
+           
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

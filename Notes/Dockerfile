@@ -12,3 +12,4 @@ WORKDIR /app
 COPY --from=build-env /app/out .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "Notes.dll"]
+

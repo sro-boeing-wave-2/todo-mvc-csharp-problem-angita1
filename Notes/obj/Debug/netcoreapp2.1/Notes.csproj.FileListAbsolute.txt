@@ -11,4 +11,3 @@ D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcore
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\bin\Debug\netcoreapp2.1\Notes.pdb
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.dll
 D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.pdb
-D:\workspace\ASP-NetCore\todo-mvc-csharp-problem-angita1\Notes\obj\Debug\netcoreapp2.1\Notes.csprojAssemblyReference.cache
